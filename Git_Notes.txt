@@ -3,38 +3,49 @@
 ## Başlangıç
 
 - `git init` : Yeni bir git deposu başlatır.
-- `git clone <repo-url>` : Var olan bir depoyu klonlar.
 
-## Temel Komutlar
+- `git add <dosya>` : Dosyayı sahneye ekler (staging area).
+
+- `git add .` : Tüm değişiklikleri sahneye ekler.
 
 - `git status` : Çalışma alanının durumunu gösterir.
-- `git add <dosya>` : Dosyayı sahneye ekler (staging area).
-- `git add .` : Tüm değişiklikleri sahneye ekler.
-- `git commit -m "mesaj"` : Sahnedeki değişiklikleri kaydeder.
-- `git log` : Commit geçmişini gösterir.
 
-## Dallanma (Branching)
+- `git restore` : Değişikliği geri alıp alanda tutmaya devam etmek için kullanılır.
 
-- `git branch` : Mevcut dalları listeler.
-- `git branch <yeni-branch>` : Yeni dal oluşturur.
-- `git checkout <branch>` : Dal değiştirir.
-- `git checkout -b <yeni-branch>` : Yeni dal oluşturup ona geçer.
-- `git merge <branch>` : Belirtilen dalı mevcut dala birleştirir.
+- `git reset --hard` : Tüm değişiklikleri geri alır ve saklandığı alandan çıkartılır.
 
-## Uzak Depo (Remote)
+- `git remote add origin <url>` : Uzak depo ekler.
 
 - `git remote -v` : Uzak depoları listeler.
-- `git remote add origin <url>` : Uzak depo ekler.
-- `git push -u origin <branch>` : Değişiklikleri uzak depoya gönderir.
-- `git pull` : Uzak depodan değişiklikleri çeker.
-
-## Diğer
 
 - `git diff` : Değişiklikleri gösterir.
-- `git stash` : Geçici olarak değişiklikleri saklar.
-- `git reset --hard` : Tüm değişiklikleri geri alır.
-- `git rm <dosya>` : Dosyayı siler ve sahneye ekler.
 
-## Yardım
+- `git diff --staged` : Geçici alandaki değişiklikleri gösterir.
+
+- `git push -u origin <branch>` : Değişiklikleri uzak depoya gönderir.
+
+- `git push` : Remote'a kayıtlı depoya gönderir
+
+- `git pull` : Uzak depodan değişiklikleri çeker.
+
+- `git clone <repo-url>` : Var olan bir depoyu klonlar.
+
+- `git commit -m "mesaj"` : Sahnedeki değişiklikleri kaydeder.
+
+- `git log` : Commit geçmişini gösterir.
+
+- `git branch` : Mevcut dalları listeler.
+
+- `git branch <yeni-branch>` : Yeni dal oluşturur.
+
+- `git checkout <branch>` : Dal değiştirir.
+
+- `git checkout -b <yeni-branch>` : Yeni dal oluşturup ona geçer.
+
+- `git merge <branch>` : Belirtilen dalı mevcut dala birleştirir.
+
+- `git stash` : Geçici olarak değişiklikleri saklar.
+
+- `git rm <dosya>` : Dosyayı siler ve sahneye ekler.
 
 - `git help <komut>` : Komut hakkında yardım alır.
