@@ -510,13 +510,73 @@ Merhaba, Dünya!
 Toplam: 15
 
 _____________________________________________________________________________________________________________________________________
-								   Sınıflar ve Nesneler
 
+							    Diziler
 
+	 int dizi[boyut];                    Sabit boyutlu dizi tanımlama
 
+~~~~~~~~~~~~~~~~~~~          Örnek Kullanım          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#include <iostream>
+#include <limits>
+using namespace std;
 
+int main() {
+int dizi[5];
 
+for (int i = 1; i <= 5; i++) {
+    cout << "Dizinin " << i << ". elemanini giriniz: ";
+    cin >> dizi[i];
+    }
+
+    while (true) {
+        int secim;
+        
+        cout << "\nGoruntulemek istediginiz elemani seciniz (1-5 arasinda ve 0 ile cikis yapabilirsiniz): ";
+        cin >> secim;
+        
+        if (cin.fail()) {
+            cout << "Gecersiz secim! Lutfen sayi girin." << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        if (secim == 0) {
+            cout << "Programdan Cikiliyor." << endl;
+            break;
+        }
+        else if (secim < 1 || secim > 5) {
+            cout << "Gecersiz secim! Lutfen 1 ile 5 arasinda bir sayi girin." << endl;
+            continue;
+        }
+
+        cout << "Dizinin " << secim << ". elemani: " << dizi[secim] << endl;
+    }
+
+return 0;
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>>          Çıktı          <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Dizinin 1. elemanini giriniz: 10
+Dizinin 2. elemanini giriniz: 20
+Dizinin 3. elemanini giriniz: 30
+Dizinin 4. elemanini giriniz: 40
+Dizinin 5. elemanini giriniz: 50
+
+Goruntulemek istediginiz elemani seciniz (1-5 arasinda ve 0 ile cikis yapabilirsiniz): 3
+Dizinin 3. elemani: 30
+
+Goruntulemek istediginiz elemani seciniz (1-5 arasinda ve 0 ile cikis yapabilirsiniz): 7
+Gecersiz secim! Lutfen 1 ile 5 arasinda bir sayi girin.
+
+Goruntulemek istediginiz elemani seciniz (1-5 arasinda ve 0 ile cikis yapabilirsiniz): abc
+Gecersiz secim! Lutfen sayi girin.
+
+Goruntulemek istediginiz elemani seciniz (1-5 arasinda ve 0 ile cikis yapabilirsiniz): 0
+Programdan Cikiliyor.
+
+_____________________________________________________________________________________________________________________________________
 
 
 
