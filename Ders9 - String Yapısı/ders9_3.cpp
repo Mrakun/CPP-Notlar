@@ -1,58 +1,97 @@
 #include <iostream>
+#include <string>
 #include <limits>
-#include <vector>
 using namespace std;
 
 bool HarfKontrol(string kelime) {
     for (int i = 0; i < kelime.length(); i++) {
     if (!isalpha(kelime[i]) && kelime[i] != ' ') {
         return false;
+        }
     }
-}
 return true;
 }
 
+int main () {
+string strAd;
+string strSoyad;
+string TamAd;
+string onay;
+int yas;
 
-int main() {
-
-int n;
-vector<string> isimler(n);
-
-    while (true) {
-        cout << "Kac tane isim gireceksiniz?\nCevap: ";
-        cin >> n;
-        if (cin.fail()) {
-            cout << "\nGecersiz Deger, lutfen bir sayi giriniz.\n" << endl;
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            continue;
-        }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        break;
-    }
-    
-    for (int i = 0; i < n; i++) {
+bool OnayAl = false;
+    while (!OnayAl) {
 
         while (true) {
-        cout << "\n" << i+1 << ". kişinin tam ismini giriniz: ";    
-        getline(cin, isimler[i]); 
-            
-            if (!HarfKontrol(isimler[i])) {
-                cout << "Lutfen isim icerisinde sayi girmeyin." << endl;
-                continue;
+        cout << "Adinizi Giriniz: ";
+        getline(cin, strAd);
+     
+                if (!HarfKontrol(strAd)) {
+                    cout << "Lutfen isimde sayi kullanmayiniz." << endl;
+                    continue;
+                }
+                else {
+                    break;
+                }
             }
 
-        break;
+        while (true) {
+        cout << "\nSoyadinizi Giriniz: ";
+        cin >> strSoyad;
+                if (!HarfKontrol(strSoyad)) {
+                    cout << "Lutfen isimde sayi kullanmayiniz." << endl;
+                    continue;
+                }
+                else {
+                    break;
+                }
+            }
+
+bool YasDongu = false;
+    while (!YasDongu) {
+    cout << "\nYasiniz: ";
+    cin >> yas;
+    if (cin.fail()) {
+            cout << "Gecersiz secim! Lutfen sayi girin." << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        
+        else if (yas == 0 || yas < 0) {
+            cout << "Lutfen gecerli bir sayi giriniz." << endl;
+        }
+        else {
+            YasDongu = true;
         }
     }
 
-int enuzunkelime = 0;
-    for (int i = 0; i < n; i++) {
-        if (isimler[i].length() > isimler[enuzunkelime].length()) {
-            enuzunkelime = i;
+        while (true) {
+        cout << "\nTam adiniz: " << strAd << " " << strSoyad << endl;
+        cout << "Yasiniz: " << yas << endl;
+        cout << "Onayliyor musunuz? (Evet / Hayir)\nCevap: ";
+        cin >> onay;
+
+        for (int i = 0; i < onay.length(); i++) {
+            onay[i] = tolower(onay[i]);
         }
+
+        if (onay == "evet") {
+            OnayAl = true;
+            cout << "Bilgiler kaydedilmistir!\n";
+            TamAd = strAd + " " + strSoyad;
+            break;
+        }
+        else if (onay == "hayır" || onay == "hayir") {
+            cout << "Lutfen bilgilerinizi dogru giriniz.\n";
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            break;
+        }
+        else {
+            cout << "\nLutfen gecerli bir cevap giriniz." << endl;
+            continue;
+        }
+      }
     }
-    cout << "En uzun isim: " << isimler[enuzunkelime] << endl;
 
 return 0;
 }
