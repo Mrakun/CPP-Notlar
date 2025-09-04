@@ -514,8 +514,9 @@ ________________________________________________________________________________
 							    Diziler
 
 	 int dizi[boyut];                    Sabit boyutlu dizi tanımlama
+	 int dizi[boyut][boyut2];            Çok boyutlu dizi tanımlama
 
-~~~~~~~~~~~~~~~~~~~          Örnek Kullanım          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~         1. Örnek Kullanım          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #include <iostream>
 #include <limits>
@@ -576,11 +577,261 @@ Gecersiz secim! Lutfen sayi girin.
 Goruntulemek istediginiz elemani seciniz (1-5 arasinda ve 0 ile cikis yapabilirsiniz): 0
 Programdan Cikiliyor.
 
+~~~~~~~~~~~~~~~~~~~         2. Örnek Kullanım          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#include <iostream>
+#include <limits>
+using namespace std;
+
+
+void pozitifSayiGirisi(int &sayi) {
+    while (true) {
+        cin >> sayi;
+        if (cin.fail()) {
+            cout << "Gecersiz giris! Lutfen sayi girin." << endl;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            continue;
+        }
+
+        else if (sayi < 0) {
+            cout << "Lütfen pozifit bir sayı giriniz" << endl;
+            continue;
+        }
+        
+        else {
+            break;
+        }
+    }
+}
+
+
+int main() {
+int dizi[3][3];
+int dizi2[3][3];
+
+for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+        cout << "\n1. Dizinin " << i+1 << ". satirinin " << j+1 << ". elemanini giriniz: ";
+        pozitifSayiGirisi(dizi[i][j]);
+    }
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>>          Çıktı          <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+1. Dizinin 1. satirinin 1. elemanini giriniz: 1
+1. Dizinin 1. satirinin 2. elemanini giriniz: 2
+1. Dizinin 1. satirinin 3. elemanini giriniz: 3
+1. Dizinin 2. satirinin 1. elemanini giriniz: 4
+1. Dizinin 2. satirinin 2. elemanini giriniz: 5
+1. Dizinin 2. satirinin 3. elemanini giriniz: 6
+1. Dizinin 3. satirinin 1. elemanini giriniz: 7
+1. Dizinin 3. satirinin 2. elemanini giriniz: 8
+1. Dizinin 3. satirinin 3. elemanini giriniz: 9
+
+2. Dizinin 1. satirinin 1. elemanini giriniz: 1
+2. Dizinin 1. satirinin 2. elemanini giriniz: 2
+2. Dizinin 1. satirinin 3. elemanini giriniz: abc
+
+Gecersiz giris! Lutfen sayi girin.
+
+2. Dizinin 1. satirinin 3. elemanini giriniz: -3
+
+Lütfen pozifit bir sayı giriniz
+
+2. Dizinin 1. satirinin 3. elemanini giriniz: 3
+2. Dizinin 2. satirinin 1. elemanini giriniz: 4
+2. Dizinin 2. satirinin 2. elemanini giriniz: 5
+2. Dizinin 2. satirinin 3. elemanini giriniz: 6
+2. Dizinin 3. satirinin 1. elemanini giriniz: 7
+2. Dizinin 3. satirinin 2. elemanini giriniz: 8
+2. Dizinin 3. satirinin 3. elemanini giriniz: 9
+
+2 4 6
+8 10 12
+14 16 18
+
+~~~~~~~~~~~~~~~~~~~         3. Örnek Kullanım          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+    int dizi1[3];
+    int dizi2[5];
+    int dizitoplam[8];
+
+    for (int i = 0; i < 3; i++) {
+        cout << "1. Dizinin " << i+1 << ". elemanini giriniz: ";
+        cin >> dizi1[i];
+        if (cin.fail()) {
+            cout << "\n" << "Gecersiz giris! Lutfen sayi girin." << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            i--;
+        }
+        
+        else if (dizi1[i] < 0) {
+            cout << "\n" << "Lutfen pozitif bir sayi girin." << endl;
+            i--;
+        }
+        
+        cout << endl;
+    }
+
+
+    for (int i = 0; i < 5; i++) {
+        cout << "2. Dizinin " << i+1 << ". elemanini giriniz: ";
+        cin >> dizi2[i];
+        if (cin.fail()) {
+            cout << "\n" << "Gecersiz giris! Lutfen sayi girin." << endl;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            i--;
+        }
+
+        else if (dizi2[i] < 0) {
+            cout << "\n" << "Lutfen pozitif bir sayi girin." << endl;
+            i--;
+        }
+        cout << endl;
+    }
+
+    for (int i = 0; i < 3; i++) {
+        dizitoplam[i] = dizi1[i];
+    }
+    
+    for (int i = 0; i < 5; i++) {
+        dizitoplam[i + 3] = dizi2[i];
+    }
+
+
+    cout << "\n" << "Toplam Dizi: ";
+    for (int i = 0; i < 8; i++) {
+        cout << dizitoplam[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>>          Çıktı          <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+1. dizinin 1. elemanini giriniz: 1
+
+1. dizinin 2. elemanini giriniz: 2
+
+1. dizinin 3. elemanini giriniz: 3
+
+2. dizinin 1. elemanini giriniz: 10
+
+2. dizinin 2. elemanini giriniz: 11
+
+2. dizinin 3. elemanini giriniz: 12
+
+2. dizinin 4. elemanini giriniz: 5
+
+2. dizinin 5. elemanini giriniz: 6
+
+Toplam Dizi: 11 13 15 5 6
+
+~~~~~~~~~~~~~~~~~~~         4. Örnek Kullanım          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+    int A[2][5] = { {5,4,1,2,3}, {7,6,3,2,1} };
+    int B[4][2] = { {5,6}, {3,4}, {10,11}, {12,13} };
+    int C[4][5] = { 0 };
+    int Adeger = 0;
+    int Bdeger = 0;
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 5; j++) {
+
+            if (i < 2 && j < 5){
+                Adeger = A[i][j];
+            }
+            else {
+                Adeger = 0;
+            }
+
+
+            if (i < 4 && j < 2) {
+                Bdeger = B[i][j];
+            }
+            else {
+                Bdeger = 0;
+            }
+
+
+        C[i][j] = Adeger + Bdeger;
+        cout << C[i][j] << " ";
+        }
+
+    cout << endl;
+    
+    }
+
+return 0;
+}
+
+>>>>>>>>>>>>>>>>>>>>>>>>          Çıktı          <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+10 10 1 2 3 
+10 10 3 2 1
+10 11 0 0 0
+12 13 0 0 0
+
+~~~~~~~~~~~~~~~~~~~         5. Örnek Kullanım          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+    int A[3][2] = {{1,2} , {3,4} , {5,6}};
+    int B[2][3] = { 0 };
+
+cout << "Dizinin ilk hali:" << endl;
+
+    for (int i = 0; i < 3; i++){
+        for (int j = 0; j < 2; j++){
+            cout << A[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+            B[j][i] = A[i][j];
+        }
+    }
+
+
+cout << "\nDizinin son hali:" << endl; 
+    for (int i = 0; i < 2; i++){
+        for (int j = 0; j < 3; j++){
+            cout << B[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
+    
+>>>>>>>>>>>>>>>>>>>>>>>>          Çıktı          <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Dizinin ilk hali:
+1 2 
+3 4 
+5 6 
+
+Dizinin son hali:
+1 3 5 
+2 4 6
 _____________________________________________________________________________________________________________________________________
-
-
-
-
 
 
 

@@ -11,7 +11,7 @@ using namespace std;
 
 void AnaMenu() {
     cout << "\nANA MENU\n";
-    cout << "1 - Bakiye Görüntüle\n";
+    cout << "1 - Bakiye Goruntule\n";
     cout << "2 - Para Yatir\n";
     cout << "3 - Para Cek\n";
     cout << "4 - Cikis\n";
@@ -28,13 +28,13 @@ void BakiyeOkuma(int& bakiye) {
     if (file.is_open()) {
         file >> bakiye;
         file.close();
-        cout << "Önceki bakiye yüklendi: " << bakiye << " TL" << endl;
+        cout << "Onceki bakiye yuklendi: " << bakiye << " TL" << endl;
     } else {
         bakiye = 0;
         ofstream Outfile("bakiye.txt");
         Outfile << bakiye;
         Outfile.close();
-        cout << "\nYeni hesap oluşturuldu. Başlangıç bakiyesi: 0 TL" << endl;
+        cout << "\nYeni hesap olusturuldu. Baslangic bakiyesi: 0 TL" << endl;
     }
 }
 
@@ -49,7 +49,7 @@ void BakiyeKaydet(int bakiye) {
         file.close();
     }
     else {
-        cout << "Dosya açılamadı!" << endl;
+        cout << "Dosya acilamadi!" << endl;
     }
 }
 
@@ -67,7 +67,7 @@ void BakiyeGoruntule(int bakiye) {
 
 void ParaYatir(int &bakiye) {
     int ekbakiye;
-cout << "\nYatırmak istediğiniz bakiyeyi girin: ";
+cout << "\nYatirmak istediginiz bakiyeyi girin: ";
 cin >> ekbakiye;
 if (cin.fail() || ekbakiye <= 0) {
 cin.clear();
@@ -88,7 +88,7 @@ cout << "\nYeni bakiyeniz: " << bakiye << " TL" <<endl;
 void ParaCek(int &bakiye){
 
     int ekbakiye;
-cout << "\nÇekmek istediğiniz tutarı giriniz: ";
+cout << "\nCekmek istediginiz tutari giriniz: ";
 cin >> ekbakiye;
 
 if (cin.fail() || ekbakiye <= 0) {
@@ -114,5 +114,5 @@ cout << "\nYeni bakiyeniz: " << bakiye << " TL" <<endl;
 
 void Cikis(int bakiye) {
     BakiyeKaydet(bakiye);
-    cout << "\nSistemden Çıkılıyor..." << endl;
+    cout << "\nSistem Kapaniyor..." << endl;
 }

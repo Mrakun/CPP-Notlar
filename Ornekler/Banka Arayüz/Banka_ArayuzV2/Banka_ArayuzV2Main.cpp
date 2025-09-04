@@ -24,10 +24,9 @@ cin >> secim;
 if (cin.fail() || secim < 1 || secim > 4) {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cout << "\nLütfen geçerli bir değer girin!" << endl;
+    cout << "\nLutfen gecerli bir deger girin!" << endl;
     continue;
 }
-
 switch(secim) {
     case 1:
         BakiyeGoruntule(bakiye);
